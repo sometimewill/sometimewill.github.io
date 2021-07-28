@@ -99,7 +99,30 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <pre><code>## leecode1hashmap最优
+通过把数组中的值当做map中的key，下标（i）当做map中的value，用target减数组中的值去得到一个diff，然后判断diff在map中是否有对应的key和其大小一样，有则返回，没有则添加到hashmap中。
+
+    public class LeeCode1HashMap &#123;
+    public static int[] twosum(int[] nums,int target)&#123;
+        HashMap&lt;Integer,Integer&gt; map=new HashMap&lt;&gt;();
+        for (int i=0;i&lt;nums.length;i++)&#123;
+            int diff=target-nums[i];
+            if (map.containsKey(diff))&#123;
+                return new int[] &#123;map.get(diff),i&#125;;
+            &#125;else &#123;
+                map.put(nums[i],i);
+            &#125;
+        &#125;
+        return new int[] &#123;-1,-1&#125;;
+    &#125;
+    public static void main(String[] args) &#123;
+        int[] nums=&#123;3,2,11,7&#125;;
+        int target=9;
+        System.out.println(Arrays.deepToString(new int[][]&#123;(twosum(nums, target))&#125;));
+    &#125;
+&#125;
+</code></pre>
+
       
     </div>
     <footer class="article-footer">
